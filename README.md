@@ -28,8 +28,10 @@ Automatically generates a well-structured Word document and converts it into PDF
 
 ## Results
 
-The voice-based form filling system begins by guiding the user through spoken instructions, allowing voice commands such as "Skip", "Stop", or "Repeat message". It then prompts the user to provide inputs like Name, Age, and Gender through speech. The recognized inputs are displayed and read back for confirmation. Upon saying "Submit", the system finalizes the data, generates a Word document, and converts it into a PDF file, effectively completing the form-filling process through voice interaction.
+Our Automated Voice Based Form Filling System successfully integrates Speech Recognition, Text to Speech (TTS), Input Validation, and Document Generation to simplify the form filling process. The system is able to accurately recognize voice input, validate fields such as names, phone numbers, and email addresses and correct errors. 
+The system successfully tested with multiple users providing voice inputs for fields like Name, Age, Gender and much more. The system maintains data accuracy by finding errors in incomplete entries during the process of data submission. It allows users to verify and confirm the details, if any error is found then the user can repeat the process, this ensures a robust and error free form filling process. Commands like Skip, Stop, and Repeat message make the system intuitive. Form is saved in both DOCX and PDF formats. Users found the system intuitive and useful, especially for accessibility and convenience.
 
+### Example
 The form was successfully filled using voice input with the following details: Name – Samrudh Dhondi, Age – 21, and Gender – Male. These inputs were recognized accurately, confirmed by the user, and then saved into a Word document, which was further converted into a PDF for easy access and sharing.
 
 ## Outputs
