@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Voice Based Form Filling</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="title">Voice Based Form Filling</header>
+
+    <div class="main-container">
+        <div class="chat-center-wrapper">
+            <div class="chat-container" id="chatContainer"></div>
+
+            <div class="input-box">
+                <input type="text" id="userInput" placeholder="Type your answer..." />
+                <button id="sendBtn">Send</button>
+                <button id="micButton">Speak</button>
+                <button id="startFormBtn" style="margin-left:10px;">Start Form</button>
+                <button id="submitFormBtn" style="margin-left:10px; display:none;">Submit Form</button>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="side-buttons">
+                <button id="uploadButton">Upload PDF</button>
+                <input type="file" id="pdfInput" accept="application/pdf" style="display:none"/>
+                <button id="sampleButton" class="sample-btn">Use Sample PDF</button>
+            </div>
+            <div class="sample-photo">
+                <embed src="{{ url_for('static', filename='sample.pdf') }}" type="application/pdf" class="pdf-viewer">
+            </div>
+
+            <div class="instruction-box">
+                <h3>Instructions</h3>
+                <ul>
+                    <li>Upload a PDF form which has fields like <code>Name____</code>, <code>Age____</code>, etc.</li>
+                    <li>After upload, click <b>Start Form</b> to begin voice/typed filling.</li>
+                    <li>Use <b>Speak</b> to answer using your mic or type and click <b>Send</b>.</li>
+                    <li>Say or type <code>skip</code> to skip a field, <code>stop</code> to abort the process.</li>
+                </ul>
+            </div>
+
+            <div class="download-box" id="downloadBox" style="margin-top:16px; display:none;">
+                <h4>Download / Preview</h4>
+                <a id="docxLink" href="#" download>Download DOCX</a><br/>
+                <a id="pdfLink" href="#" download>Download PDF</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='formfilling.js') }}"></script>
+</body>
+</html>

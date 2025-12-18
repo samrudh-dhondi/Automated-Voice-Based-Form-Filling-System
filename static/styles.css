@@ -1,0 +1,259 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background: #f5f7fb;
+}
+
+.title{
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    padding: 20px;
+    color: white;
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 40px;
+}
+
+.chat-center-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    height: calc(100vh - 140px);
+    position: relative;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #e0e7eb;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(32,33,36,0.08);
+    overflow: hidden;
+    background: url("/static/background.jpg") center/cover no-repeat;
+    backdrop-filter: blur(4px);
+}
+
+.chat-center-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15); /* adjust transparency here */
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+.chat-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    top: 0;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+}
+
+/* NEW - wrapper for icon + bubble */
+.message-wrapper {
+    display: flex;
+    align-items: flex-start;
+    max-width: 85%;
+    margin: 6px 0;
+}
+
+.message-wrapper.user {
+    margin-left: auto;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+/* Bubble spacing */
+.message-wrapper.user .chat-message {
+    margin-right: 6px;
+}
+
+.message-wrapper:not(.user) .chat-message {
+    margin-left: 6px;
+}
+
+.input-box{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 12px 16px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #e6eef0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,250,251,0.98));
+}
+
+.input-box input{
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d1d5db;
+    border-radius: 10px;
+    outline: none;
+}
+
+.input-box button{
+    margin-left: 10px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-box button:active{
+    opacity: 0.8;
+    transition: opacity 0.1s ease;
+}
+
+.right-panel{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    width: 320px;
+}
+
+.side-buttons{
+    margin-top: 0px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.side-buttons button{
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.side-buttons button:active{
+    opacity: 0.8;
+    transition: opacity 0.1s ease;
+}
+
+/* sample button distinct look (slightly lighter) */
+.side-buttons .sample-btn{
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+.instruction-box{
+    border: 1px solid #e6f5ee;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 10px;
+    line-height: 1.4;
+    background: #fcfffe;
+}
+
+.instruction-box h3{
+    margin-top: 0;
+}
+
+/* message bubble */
+.chat-message{
+    padding: 10px 14px;
+    border-radius: 10px;
+    max-width: 100%;
+    box-shadow: 0 2px 6px rgba(16,24,40,0.04);
+    line-height: 1.4;
+    word-wrap: break-word;
+    white-space: pre-wrap; /* preserve line breaks and spacing */
+}
+
+/* Bot/system message */
+.chat-message.system,
+.chat-message.pre{
+    align-self: flex-start;
+}
+
+.chat-message.system{
+    background: #eef8ff;
+    color: #0b3a66;
+}
+
+.chat-message.pre{
+    background: #fff9e6;
+    color: #665900;
+}
+
+/* User bubble */
+.chat-message.user{
+    background: #e9f7ec;
+    color: #0b4a1a;
+    align-self: flex-end;
+}
+
+/* ICONS */
+.bot-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.user-icon {
+    width: 35px;
+    height: 35px;
+    margin-left: 8px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* download links */
+.download-box a{
+    display: inline-block;
+    color: #0b57d0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.sample-photo {
+    width: 310px;
+    height: 120px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
